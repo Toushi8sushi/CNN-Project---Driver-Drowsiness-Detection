@@ -2,5 +2,3 @@ image_data_processed/
 image_data_original/
 *.keras
 *.h5
-support_files/Accuracy_vs_epochs.jpg
-support_files/loss_vs_epochs.jpg
