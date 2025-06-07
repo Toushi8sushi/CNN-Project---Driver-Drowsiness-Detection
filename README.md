@@ -35,10 +35,10 @@ It includes:
 * Dense output layer for binary classification
 
 **It achieved an accuracy of around 96% on the test data**
-<p align="center">
-<img src="support_files/Accuracy_vs_epochs.jpg" alt="Closed Eye" width="200" style="margin-right: 80px;"/>
-  <img src="support_files/loss_vs_epochs.jpg" alt="Right Eye" width="200" >
-</p>
+<div align="center">
+  <img src="support_files/Accuracy_vs_epochs.jpg" alt="Accuracy" width="200" style="display:inline-block; margin-right:80px;">
+  <img src="support_files/loss_vs_epochs.jpg" alt="Loss" width="200" style="display:inline-block;">
+</div>
 
 ##  Drowsiness Detection Logic
 
