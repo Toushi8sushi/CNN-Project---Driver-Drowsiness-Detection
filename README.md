@@ -16,9 +16,11 @@ The system works by:
     - `my_right_eye.jpg`  
     - `my_left_eye.jpg`  
     - `closed_eye.jpg`
+    - `Graphs for README`
 
 * `Driver_Drowsiness_integrated.py` -> Main file to run the application 
 * `Driver_Drowsiness_CNN.ipynb` -> File to train a CNN model 
+* `Driver_Drowsiness_MobileNetV2.ipynb` -> File implementing the pretrained model
 * `image_data_processing.ipynb` -> File to preprocess your trainig data 
 
 ## CNN Model
@@ -39,6 +41,18 @@ It includes:
   <img src="support_files/Accuracy_vs_epochs.jpg" alt="Accuracy" width="200" style="display:inline-block; margin-right:80px;">
   <img src="support_files/loss_vs_epochs.jpg" alt="Loss" width="200" style="display:inline-block;">
 </div>
+
+## Pretrained model MobileNetV2
+I have used a pretrained model to acchieve higher accuracy for the same application. It reduces the training time and works on RGB images.
+* Implemented in `Driver_Drowsiness_MobileNetV2.ipynb`
+* To use this file make sure to turn on `flag_rgb` in the `image_data_processing.ipynb` file.
+* **It achieved an accuracy of around 99.8% on the test data**
+
+<div align="center">
+  <img src="support_files/Accuracy_vs_epochs_rgb2.jpg" alt="Accuracy" width="200" style="display:inline-block; margin-right:80px;">
+  <img src="support_files/loss_vs_epochs_rgb2.jpg" alt="Loss" width="200" style="display:inline-block;">
+</div>
+
 
 ##  Drowsiness Detection Logic
 
@@ -71,7 +85,7 @@ image_data_processing.ipynb
     Open and run:
 
 ```bash
-Driver_Drowsiness_CNN.ipynb
+Driver_Drowsiness_CNN.ipynb or `Driver_Drowsiness_MobileNetV2.ipynb
 ```
 
 3. **Start the Drowsiness Detection App**:

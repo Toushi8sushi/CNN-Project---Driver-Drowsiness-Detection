@@ -8,7 +8,7 @@ import pygame
 
 # Initialize pygame mixer
 pygame.mixer.init()
-alert_sound = pygame.mixer.Sound('Alert.mp3')  # Make sure you have alert.wav in your directory
+alert_sound = pygame.mixer.Sound('T:\TOSHITH\PROGRAMMING\CNN-Project---Driver-Drowsiness-Detection\support_files\Alert.mp3')  # Make sure you have alert.wav in your directory
 
 # Load Haar cascades for face and eyes
 face_cascade = cv2.CascadeClassifier(cv2.data.haarcascades + 'haarcascade_frontalface_default.xml')
@@ -16,16 +16,27 @@ left_eye_cascade = cv2.CascadeClassifier(cv2.data.haarcascades + 'haarcascade_le
 right_eye_cascade = cv2.CascadeClassifier(cv2.data.haarcascades + 'haarcascade_righteye_2splits.xml')
 
 # Load your trained CNN model
-model = load_model("driver_drowsiness.keras")
+model = load_model("T:\TOSHITH\PROGRAMMING\CNN-Project---Driver-Drowsiness-Detection\driver_drowsiness.keras")
+
+'''#or 
+model = load_model("T:\TOSHITH\PROGRAMMING\CNN-Project---Driver-Drowsiness-Detection\driver_drowsiness_MobileNetV2.keras")
+'''
+rgb_flag=False#-----------------------------keep as True if using the MobileNetV2 model
 
 # Timer tracking
 eye_closed_start_time = None
 alert_threshold = 3  # seconds
 alert_active = False  # To track if we're in alert state
 
+
 def preprocess_eye(eye_image):
-    # Convert to PIL Image then grayscale
-    eye = Image.fromarray(eye_image).convert("L").resize((200, 200))
+    if rgb_flag:
+        # Convert BGR (OpenCV) to RGB for MobileNetV2
+        eye = cv2.cvtColor(eye_image, cv2.COLOR_BGR2RGB)
+        eye = Image.fromarray(eye).resize((200, 200))
+    else:
+        eye = Image.fromarray(eye_image).convert("L").resize((200, 200))
+    
     eye_array = img_to_array(eye) / 255.0
     return np.expand_dims(eye_array, axis=0)
 
@@ -99,6 +110,5 @@ finally:
     cap.release()
     cv2.destroyAllWindows()
     pygame.mixer.quit()
-
 
 

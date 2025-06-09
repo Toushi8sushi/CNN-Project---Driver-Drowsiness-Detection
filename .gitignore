@@ -1,4 +1,5 @@
 image_data_processed/
 image_data_original/
+image_data_processed_rgb/
 *.keras
 *.h5
