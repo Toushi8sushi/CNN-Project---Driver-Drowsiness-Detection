@@ -85,7 +85,7 @@ image_data_processing.ipynb
     Open and run:
 
 ```bash
-Driver_Drowsiness_CNN.ipynb or `Driver_Drowsiness_MobileNetV2.ipynb
+Driver_Drowsiness_CNN.ipynb or Driver_Drowsiness_MobileNetV2.ipynb
 ```
 
 3. **Start the Drowsiness Detection App**:
